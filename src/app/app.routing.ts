@@ -59,6 +59,10 @@ export const routes: Routes = [
         path: 'themnhankhau',
         loadChildren: () => import('./component/them-nhan-khau/them-nhan-khau.module').then(m => m.ThemNhanKhauModule)
       },
+      {
+        path: 'suanhankhau',
+        loadChildren: () => import('./component/sua-nhan-khau/sua-nhan-khau.module').then(m => m.SuaNhanKhauModule)
+      },
     ]
   },
   {
