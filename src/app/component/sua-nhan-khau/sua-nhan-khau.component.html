@@ -19,6 +19,7 @@
                   <th>Dân tộc</th>
                   <th>Tôn giáo</th>
                   <th>Quốc tịch</th>
+                  <th>Xóa</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,6 +36,9 @@
                   <td>{{ person.danToc }}</td>
                   <td>{{ person.tonGiao }}</td>
                   <td>{{ person.quocTich }}</td>
+                  <td>
+                    <button type="button" class="btn btn-block btn-danger active" (click)="XoaNhanKhau(person.id)"> Xóa</button>
+                  </td>
                 </tr>
               </tbody>
             </table>

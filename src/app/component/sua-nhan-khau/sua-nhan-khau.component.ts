@@ -8,12 +8,23 @@ import { SuaNhanKhauService } from './sua-nhan-khau.service';
   providers: [SuaNhanKhauService],
 })
 export class SuaNhanKhauComponent implements OnInit {
+  nhanKhau: [any];
+
   constructor(private suaNhanKhauService: SuaNhanKhauService) { }
-  nhanKhau: [];
+  
   ngOnInit(): void {
     this.suaNhanKhauService.GetAll().subscribe(data => {
       this.nhanKhau = data;
       console.log(this.nhanKhau);
+    });
+  }
+
+  XoaNhanKhau(id: number) {
+    this.suaNhanKhauService.DeleteByID(id).subscribe(data => {
+      const index = this.nhanKhau.findIndex(e => e.id === id);
+      this.nhanKhau.splice(index, 1);
+      console.log(data);
     })
   }
+
 }
