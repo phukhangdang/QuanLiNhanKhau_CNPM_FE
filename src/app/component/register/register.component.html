@@ -1,0 +1,112 @@
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="card-header">
+                  <strong>Khai báo y tế</strong>
+                </div>
+                <div class="card-body">
+                  <form (ngSubmit)="onSubmit(f);" [formGroup]="formKhaiBaoYTe" action="" method="post" enctype="multipart/form-data" class="form-horizontal" #f="ngForm">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input">ID Nhân Khẩu</label>
+                      <div class="col-md-9">
+                        <input type="number" id="text-input" name="text-input" class="form-control" placeholder="ID" formControlName="nhanKhauID">
+                        <span class="help-block">Nhập vào ID của bạn</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label">Triệu chứng</label>
+                      <div class="col-md-9 col-form-label">
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1" formControlName="sot">
+                          <label class="form-check-label" for="inline-checkbox1">Sốt</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox2" value="option2" formControlName="ho">
+                          <label class="form-check-label" for="inline-checkbox2">Ho</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox3" value="option3" formControlName="khoTho">
+                          <label class="form-check-label" for="inline-checkbox3">Khó thở</label>
+                        </div>
+                        <br><br>
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option4" formControlName="viemPhoi">
+                          <label class="form-check-label" for="inline-checkbox1">Viêm Phổi</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option5" formControlName="dauHong">
+                          <label class="form-check-label" for="inline-checkbox1">Đau họng</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                          <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option6" formControlName="metMoi">
+                          <label class="form-check-label" for="inline-checkbox1">Mệt mỏi</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="select1">Tình trạng cách ly</label>
+                      <div class="col-md-9">
+                        <select id="select1" name="select1" class="form-control" formControlName="trangThaiCachLy">
+                          <option value="Khỏe mạnh">Khỏe mạnh</option>
+                          <option value="F0">F0</option>
+                          <option value="F1">F1</option>
+                          <option value="F2">F2</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="date-input">Thời gian bắt đầu</label>
+                      <div class="col-md-9">
+                        <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date" formControlName="thoiGianBatDau">
+                        <span class="help-block">Please enter a valid date</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="date-input">Thời gian kết thúc</label>
+                      <div class="col-md-9">
+                        <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date" formControlName="thoiGianKetThuc">
+                        <span class="help-block">Please enter a valid date</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label">Kết quả xét nghiệm</label>
+                      <div class="col-md-9 col-form-label">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="option1" id="checkbox1" formControlName="ketQuaXetNghiem">
+                          <label class="form-check-label" for="checkbox1">
+                            Dương tính
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input">Hình thức test</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" name="text-input" class="form-control" placeholder="Hình thức" formControlName="hinhThucTest">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="textarea-input">Tiếp Xúc</label>
+                      <div class="col-md-9">
+                        <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control" placeholder="Tiếp xúc ..." formControlName="tiepXuc"></textarea>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                    </div>
+                    <!-- <code>{{ formKhaiBaoYTe.value | json }}</code> -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  

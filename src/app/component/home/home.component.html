@@ -1,0 +1,102 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body pb-0">
+            <div class="btn-group float-right" dropdown>
+            </div>
+            <div class="text-value">F0</div>
+            <div>100</div>
+          </div>
+          <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+            <canvas baseChart class="chart"
+            [datasets]="barChart1Data"
+            [labels]="barChart1Labels"
+            [options]="barChart1Options"
+            [colors]="barChart1Colours"
+            [legend]="barChart1Legend"
+            [chartType]="barChart1Type"></canvas>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body pb-0">
+            <div class="text-value">F1</div>
+            <div>100</div>
+          </div>
+          <div class="chart-wrapper mt-3" style="height:70px;">
+            <canvas baseChart class="chart"
+            [datasets]="lineChart3Data"
+            [labels]="lineChart3Labels"
+            [options]="lineChart3Options"
+            [colors]="lineChart3Colours"
+            [legend]="lineChart3Legend"
+            [chartType]="lineChart3Type"></canvas>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-info">
+          <div class="card-body pb-0">
+            <div class="text-value">F2</div>
+            <div>100</div>
+          </div>
+          <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+            <canvas baseChart class="chart"
+            [datasets]="lineChart2Data"
+            [labels]="lineChart2Labels"
+            [options]="lineChart2Options"
+            [colors]="lineChart2Colours"
+            [legend]="lineChart2Legend"
+            [chartType]="lineChart2Type"></canvas>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-primary">
+          <div class="card-body pb-0">
+            <div class="text-value">Khỏe mạnh</div>
+            <div>1000</div>
+          </div>
+          <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+            <canvas baseChart class="chart"
+                    [datasets]="lineChart1Data"
+                    [labels]="lineChart1Labels"
+                    [options]="lineChart1Options"
+                    [colors]="lineChart1Colours"
+                    [legend]="lineChart1Legend"
+                    [chartType]="lineChart1Type"></canvas>
+          </div>
+        </div>
+      </div><!--/.col-->
+    </div><!--/.row-->
+
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-5">
+            <h4 class="card-title mb-0">COVID - 19</h4>
+            <div class="small text-muted">December 2020</div>
+          </div><!--/.col-->
+          <div class="col-sm-7 d-none d-md-block">
+            <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
+              <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Day" id="option1">Day</label>
+              <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Month" id="option2">Month</label>
+              <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Year" id="option3">Year</label>
+            </div>
+          </div><!--/.col-->
+        </div><!--/.row-->
+        <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+          <canvas baseChart class="chart"
+          [datasets]="mainChartData"
+          [labels]="mainChartLabels"
+          [options]="mainChartOptions"
+          [colors]="mainChartColours"
+          [legend]="mainChartLegend"
+          [chartType]="mainChartType"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  

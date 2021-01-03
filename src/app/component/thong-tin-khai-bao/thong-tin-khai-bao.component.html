@@ -1,0 +1,87 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Thông tin nhân khẩu
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nhân khẩu ID</th>
+                  <th>Sốt</th>
+                  <th>Ho</th>
+                  <th>Khó thở</th>
+                  <th>Viêm phổi</th>
+                  <th>Đau họng</th>
+                  <th>Mệt mỏi</th>
+                  <th>Trạng thái cách ly</th>
+                  <th>Thời gian bắt đầu</th>
+                  <th>Thời gian kết thúc</th>
+                  <th>Kết quả xét nghiệm</th>
+                  <th>Hình thức test</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of khaiBao">
+                  <td>{{ item.nhanKhauID }}</td>
+                  <td>
+                    <span *ngIf="item.sot" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.sot" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.ho" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.ho" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.khoTho" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.khoTho" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.viemPhoi" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.viemPhoi" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.dauHong" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.dauHong" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.metMoi" class="badge badge-danger">Có</span>
+                    <span *ngIf="!item.metMoi" class="badge badge-success">Không</span>
+                  </td>
+                  <td>
+                    <span *ngIf="item.trangThaiCachLy == 'F0'" class="badge badge-danger">F0</span>
+                    <span *ngIf="item.trangThaiCachLy == 'F1'" class="badge badge-warning">F1</span>
+                    <span *ngIf="item.trangThaiCachLy == 'F2'" class="badge badge-primary">F2</span>
+                    <span *ngIf="item.trangThaiCachLy == 'Khỏe mạnh'" class="badge badge-success">Khỏe mạnh</span>
+                  </td>
+                  <td>{{ item.thoiGianBatDau | date }}</td>
+                  <td>{{ item.thoiGianKetThuc | date }}</td>
+                  <td>
+                    <span *ngIf="item.ketQuaXetNghiem" class="badge badge-danger">Dương tính</span>
+                    <span *ngIf="!item.ketQuaXetNghiem" class="badge badge-success">Âm tính</span>
+                  </td>
+                  <td>{{ item.hinhThucTest }}</td>
+
+                </tr>
+              </tbody>
+            </table>
+            <!--
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          -->
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
+  </div>
+  
