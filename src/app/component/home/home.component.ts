@@ -1,81 +1,74 @@
 import { Component, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { HomeService } from './home.service'
 
 @Component({
-  templateUrl: 'home.component.html'
+  templateUrl: 'home.component.html',
+  providers: [HomeService],
 })
 export class HomeComponent implements OnInit {
+  data: [any];
+  F0: number;
+  F1: number;
+  F2: number;
+  khoeManh: number;
+  constructor(private homeService: HomeService) { }
 
   radioModel: string = 'Month';
-
-  // lineChart1
-  public lineChart1Data: Array<any> = [
+  // lineChart0
+  public lineChart0Data: Array<any> = [
     {
-      data: [65, 59, 84, 84, 51, 55, 40],
-      label: 'Series A'
+      data: [],
+      label: 'F0'
     }
   ];
-  public lineChart1Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChart1Options: any = {
-    tooltips: {
-      enabled: false,
-      custom: CustomTooltips
-    },
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [{
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent'
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        }
-
-      }],
-      yAxes: [{
-        display: false,
-        ticks: {
-          display: false,
-          min: 40 - 5,
-          max: 84 + 5,
-        }
-      }],
-    },
-    elements: {
-      line: {
-        borderWidth: 1
-      },
-      point: {
-        radius: 4,
-        hitRadius: 10,
-        hoverRadius: 4,
-      },
-    },
-    legend: {
-      display: false
-    }
-  };
-  public lineChart1Colours: Array<any> = [
-    {
-      backgroundColor: getStyle('--primary'),
+  public lineChart0Colours: Array<any> = [
+    { // grey
+      backgroundColor: getStyle('--danger'),
       borderColor: 'rgba(255,255,255,.55)'
     }
   ];
-  public lineChart1Legend = false;
-  public lineChart1Type = 'line';
-
+  // lineChart1
+  public lineChart1Data: Array<any> = [
+    {
+      data: [],
+      label: 'F1'
+    }
+  ];
+  public lineChart1Colours: Array<any> = [
+    { // grey
+      backgroundColor: getStyle('--warning'),
+      borderColor: 'rgba(255,255,255,.55)'
+    }
+  ];
   // lineChart2
   public lineChart2Data: Array<any> = [
     {
-      data: [1, 18, 9, 17, 34, 22, 11],
-      label: 'Series A'
+      data: [],
+      label: 'F2'
     }
   ];
-  public lineChart2Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChart2Options: any = {
+  public lineChart2Colours: Array<any> = [
+    { // grey
+      backgroundColor: getStyle('--info'),
+      borderColor: 'rgba(255,255,255,.55)'
+    }
+  ];
+  // lineChart3
+  public lineChart3Data: Array<any> = [
+    {
+      data: [],
+      label: 'Khỏe mạnh'
+    }
+  ];
+  public lineChart3Colours: Array<any> = [
+    { // grey
+      backgroundColor: getStyle('--success'),
+      borderColor: 'rgba(255,255,255,.55)'
+    }
+  ];
+  public lineChart3Options: any = {
     tooltips: {
       enabled: false,
       custom: CustomTooltips
@@ -97,8 +90,8 @@ export class HomeComponent implements OnInit {
         display: false,
         ticks: {
           display: false,
-          min: 1 - 5,
-          max: 34 + 5,
+          min: 300,
+          max: 1000,
         }
       }],
     },
@@ -117,25 +110,9 @@ export class HomeComponent implements OnInit {
       display: false
     }
   };
-  public lineChart2Colours: Array<any> = [
-    { // grey
-      backgroundColor: getStyle('--info'),
-      borderColor: 'rgba(255,255,255,.55)'
-    }
-  ];
-  public lineChart2Legend = false;
-  public lineChart2Type = 'line';
-
-
-  // lineChart3
-  public lineChart3Data: Array<any> = [
-    {
-      data: [78, 81, 80, 45, 34, 12, 40],
-      label: 'Series A'
-    }
-  ];
-  public lineChart3Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChart3Options: any = {
+  // generalChart
+  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  public lineChartOptions: any = {
     tooltips: {
       enabled: false,
       custom: CustomTooltips
@@ -143,18 +120,32 @@ export class HomeComponent implements OnInit {
     maintainAspectRatio: false,
     scales: {
       xAxes: [{
-        display: false
+        gridLines: {
+          color: 'transparent',
+          zeroLineColor: 'transparent'
+        },
+        ticks: {
+          fontSize: 2,
+          fontColor: 'transparent',
+        }
+
       }],
       yAxes: [{
-        display: false
-      }]
+        display: false,
+        ticks: {
+          display: false,
+          min: 10,
+          max: 100,
+        }
+      }],
     },
     elements: {
       line: {
-        borderWidth: 2
+        tension: 0.00001,
+        borderWidth: 1
       },
       point: {
-        radius: 0,
+        radius: 4,
         hitRadius: 10,
         hoverRadius: 4,
       },
@@ -163,52 +154,8 @@ export class HomeComponent implements OnInit {
       display: false
     }
   };
-  public lineChart3Colours: Array<any> = [
-    {
-      backgroundColor: 'rgba(255,255,255,.2)',
-      borderColor: 'rgba(255,255,255,.55)',
-    }
-  ];
-  public lineChart3Legend = false;
-  public lineChart3Type = 'line';
-
-
-  // barChart1
-  public barChart1Data: Array<any> = [
-    {
-      data: [78, 81, 80, 45, 34, 12, 40, 78, 81, 80, 45, 34, 12, 40, 12, 40],
-      label: 'Series A',
-      barPercentage: 0.6,
-    }
-  ];
-  public barChart1Labels: Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
-  public barChart1Options: any = {
-    tooltips: {
-      enabled: false,
-      custom: CustomTooltips
-    },
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [{
-        display: false,
-      }],
-      yAxes: [{
-        display: false
-      }]
-    },
-    legend: {
-      display: false
-    }
-  };
-  public barChart1Colours: Array<any> = [
-    {
-      backgroundColor: 'rgba(255,255,255,.3)',
-      borderWidth: 0
-    }
-  ];
-  public barChart1Legend = false;
-  public barChart1Type = 'bar';
-
+  public lineChartLegend = false;
+  public lineChartType = 'line';
   // mainChart
 
   public mainChartElements = 27;
@@ -310,6 +257,30 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // get data
+    this.homeService.GetAll().subscribe(data => {
+      this.data = data;
+      console.log(this.data);
+      this.data.forEach(element => {
+        this.lineChart0Data.forEach(e => {
+          e.data.push(element.soLuongF0);
+          this.F0 = element.soLuongF0;
+        });
+        this.lineChart1Data.forEach(e => {
+          e.data.push(element.soLuongF1);
+          this.F1 = element.soLuongF1;
+        });
+        this.lineChart2Data.forEach(e => {
+          e.data.push(element.soLuongF2);
+          this.F2 = element.soLuongF2;
+        });
+        this.lineChart3Data.forEach(e => {
+          e.data.push(element.soLuongKhoeManh);
+          this.khoeManh = element.soLuongKhoeManh;
+        });
+      });
+    });
+    // khoi tao data cho lineChart
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
