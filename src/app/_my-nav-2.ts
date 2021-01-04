@@ -21,8 +21,8 @@ export const myNavItems: INavData[] = [
     icon: 'icon-star',
   },
   {
-    name: 'Thông báo khai báo',
-    url: '/quanli/xoanhankhau',
+    name: 'Liên quan COVID-19',
+    url: '/thongke/lienquancovid',
     icon: 'icon-star',
   }
 ]

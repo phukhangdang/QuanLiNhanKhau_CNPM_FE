@@ -84,6 +84,10 @@ export const routes: Routes = [
         path: 'danhsach',
         loadChildren: () => import('./component/danh-sach-khai-bao/danh-sach-khai-bao.module').then(m => m.DanhSachKhaiBaoModule)
       },
+      {
+        path: 'lienquancovid',
+        loadChildren: () => import('./component/lien-quan-covid/lien-quan-covid.module').then(m => m.LienQuanCovidModule)
+      },
     ]
   },
   {

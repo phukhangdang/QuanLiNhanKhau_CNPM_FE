@@ -25,7 +25,11 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of khaiBao">
-                  <td>{{ item.nhanKhauID }}</td>
+                  <td>
+                    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                      <button type="button" class="btn btn-block btn-secondary">{{ item.nhanKhauID }}</button>
+                  </div>
+                  </td>
                   <td>
                     <span *ngIf="item.sot" class="badge badge-danger">Có</span>
                     <span *ngIf="!item.sot" class="badge badge-success">Không</span>
