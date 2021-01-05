@@ -78,13 +78,13 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Ngày khai báo: {{ toKhaiYTe.dateRegistered | date }}</p>
-          <p *ngIf="toKhaiYTe.sot">Sốt</p>
-          <p *ngIf="toKhaiYTe.ho">Ho</p>
-          <p *ngIf="toKhaiYTe.khoTho">Khó thở</p>
-          <p *ngIf="toKhaiYTe.viemPhoi">Viêm phổi</p>
-          <p *ngIf="toKhaiYTe.dauHong">Đau họng</p>
-          <p *ngIf="toKhaiYTe.metMoi">Mệt mỏi</p>
+          <p><strong>Ngày khai báo: {{ toKhaiYTe.dateRegistered | date }}</strong></p>
+          <p *ngIf="toKhaiYTe.sot"><strong>Sốt</strong></p>
+          <p *ngIf="toKhaiYTe.ho"><strong>Ho</strong></p>
+          <p *ngIf="toKhaiYTe.khoTho"><strong>Khó thở</strong></p>
+          <p *ngIf="toKhaiYTe.viemPhoi"><strong>Viêm phổi</strong></p>
+          <p *ngIf="toKhaiYTe.dauHong"><strong>Đau họng</strong></p>
+          <p *ngIf="toKhaiYTe.metMoi"><strong>Mệt mỏi</strong></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="primaryModal.hide()">Close</button>
