@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { RegisterService } from './register.services';
@@ -9,8 +10,9 @@ import { RegisterService } from './register.services';
   providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {
-
   formKhaiBaoYTe: FormGroup;
+  thongKeYTe: any;
+
   constructor(private fb: FormBuilder, private registerService: RegisterService) { }
 
   ngOnInit(): void {
@@ -28,6 +30,11 @@ export class RegisterComponent implements OnInit {
       ketQuaXetNghiem: false,
       hinhThucTest: '',
       tiepXuc: 'Không',
+      DateRegistered: new Date(),
+    });
+    this.registerService.TimThang((new Date()).getMonth() + 1).subscribe(data => {
+      this.thongKeYTe = data;
+      console.log(this.thongKeYTe);
     });
   }
 
@@ -41,6 +48,21 @@ export class RegisterComponent implements OnInit {
       console.log(err);
       alert("Có lỗi xảy ra!");
       f.resetForm();
-    })
+    });
+    if (this.formKhaiBaoYTe.value.trangThaiCachLy == "F0") {
+      this.thongKeYTe.soLuongF0 += 1;
+    }
+    if (this.formKhaiBaoYTe.value.trangThaiCachLy == "F1") {
+      this.thongKeYTe.soLuongF1 += 1;
+    }
+    if (this.formKhaiBaoYTe.value.trangThaiCachLy == "F2") {
+      this.thongKeYTe.soLuongF2 += 1;
+    }
+    if (this.formKhaiBaoYTe.value.trangThaiCachLy == "Khỏe mạnh") {
+      this.thongKeYTe.soLuongKhoeManh += 1;
+    }
+    this.registerService.CapNhatThang(this.thongKeYTe).subscribe(data => {
+      console.log(data);
+    });
   }
 }

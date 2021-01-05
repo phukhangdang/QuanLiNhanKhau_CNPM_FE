@@ -6,6 +6,8 @@ import { myNavItems } from '../../_my-nav';
   templateUrl: './quan-li-layout.component.html'
 })
 export class QuanLiLayoutComponent {
+  constructor() { }
+
   public sidebarMinimized = false;
   public myNavItems = myNavItems;
 
