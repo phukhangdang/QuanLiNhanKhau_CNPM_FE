@@ -19,6 +19,8 @@
                   <th>Dân tộc</th>
                   <th>Tôn giáo</th>
                   <th>Quốc tịch</th>
+                  <th>Tình trạng</th>
+                  <th>Xem chi tiết</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,6 +37,16 @@
                   <td>{{ person.danToc }}</td>
                   <td>{{ person.tonGiao }}</td>
                   <td>{{ person.quocTich }}</td>
+                  <td>
+                    <span class="badge badge-danger">F0</span>
+                    <span *ngIf="person.trangThaiCachLy == 'F0'" class="badge badge-danger">F0</span>
+                    <span *ngIf="person.trangThaiCachLy == 'F1'" class="badge badge-warning">F1</span>
+                    <span *ngIf="person.trangThaiCachLy == 'F2'" class="badge badge-primary">F2</span>
+                    <span *ngIf="person.trangThaiCachLy == 'Khỏe mạnh'" class="badge badge-success">Khỏe mạnh</span>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-block btn-primary active" (click)="primaryModal.show()" (click)="khoiTaoToKhaiYTe(person.id)">Chi tiết</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -55,4 +67,29 @@
       </div>
     </div><!--/.row-->
   </div>
+
+  <div bsModal #primaryModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-primary" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Chi tiết</h4>
+          <button type="button" class="close" (click)="primaryModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Ngày khai báo: {{ toKhaiYTe.dateRegistered | date }}</p>
+          <p *ngIf="toKhaiYTe.sot">Sốt</p>
+          <p *ngIf="toKhaiYTe.ho">Ho</p>
+          <p *ngIf="toKhaiYTe.khoTho">Khó thở</p>
+          <p *ngIf="toKhaiYTe.viemPhoi">Viêm phổi</p>
+          <p *ngIf="toKhaiYTe.dauHong">Đau họng</p>
+          <p *ngIf="toKhaiYTe.metMoi">Mệt mỏi</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="primaryModal.hide()">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   

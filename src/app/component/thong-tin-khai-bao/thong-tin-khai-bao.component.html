@@ -99,9 +99,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>ID: {{ person.id }}</p>
-          <p>Họ và tên: {{ person.hoTen }}</p>
-          <p>Ngày sinh: {{ person.ngaySinh }}</p>
+          <p><strong>Nhân khẩu ID: {{ person.id }}</strong></p>
+          <p><strong>Họ và tên: {{ person.hoTen }}</strong></p>
+          <p><strong>Ngày sinh: {{ person.ngaySinh | date }}</strong></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="primaryModal.hide()">Close</button>
